@@ -1,16 +1,34 @@
 <?php
+
 namespace Burst;
 
 use Burst\Http\Request;
 use Burst\Http\Response;
 
 class Application {
+
+    /**
+     * The Router instance. Instructs the application what routes are defined.
+     *
+     * @var Router
+     */
     private Router $router;
 
+    /**
+     * Constructor. Provides the Router instance.
+     *
+     * @param Router $router
+     */
     public function __construct(Router $router) {
         $this->router = $router;
     }
 
+    /**
+     * Handles each request appropriately.
+     *
+     * @param Request $request
+     * @return Response
+     */
     public function handle(Request $request): Response {
         $route = $this->router->dispatch($request->getMethod(), $request->getPath());
         
@@ -20,7 +38,7 @@ class Application {
 
         $request->setParams($route['params']);
         
-        // Run middleware stack
+        // MIDDLEWARE AND HANDLER EXECUTION
         $next = function ($request) use ($route) {
             if (is_callable($route['handler'])) {
                 return $route['handler']($request);
@@ -33,7 +51,7 @@ class Application {
             return new Response('Invalid handler', 500);
         };
 
-        // Build middleware chain
+        // Build a middleware chain.
         foreach (array_reverse($route['middleware']) as $middleware) {
             $next = function ($request) use ($middleware, $next) {
                 return $middleware($request, $next);
@@ -41,6 +59,7 @@ class Application {
         }
 
         $response = $next($request);
+
         return $response instanceof Response ? $response : new Response($response);
     }
 }

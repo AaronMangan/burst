@@ -6,7 +6,7 @@ use Burst\Http\Request;
 use Burst\Http\Response;
 
 /**
- * HomeController handles requests for the application's home page and simple greeting endpoints.
+ * Example Controller
  *
  * @extends Controller
  */
