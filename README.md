@@ -8,7 +8,7 @@ I know, there are excellent PHP frameworks available these days, and I LOVE to u
 
 But I thought to myself, how small can we go? - the result is Burst.
 
-The ideal is to cut out anything you don't need, add only what you will actually use.
+The idea is to cut out anything you don't need, add only what you will actually use.
 
 During the course of my developer career, I have work on so many tools that just needed the basics, from tiny API's designed only to access a legacy database with three tables, to tools that served a single page for insurance calculations. Most of these did not need all the overhead a full framework.
 
@@ -90,3 +90,6 @@ $router->middleware(function(Request $request, callable $next) {
     return $response;
 });
 ```
+## *More Coming*
+
+This framework is still in development, please stay tuned for updates!
