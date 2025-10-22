@@ -6,6 +6,10 @@ use Burst\Router;
 use Burst\Application;
 use Burst\Http\Request;
 use Burst\Http\Response;
+use Burst\Config;
+
+// Create the config instance
+Config::getInstance();
 
 // Create router
 $router = new Router();

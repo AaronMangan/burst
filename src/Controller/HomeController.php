@@ -4,6 +4,7 @@ namespace Burst\Controller;
 
 use Burst\Http\Request;
 use Burst\Http\Response;
+use Burst\Config;
 
 /**
  * Example Controller
@@ -30,6 +31,9 @@ class HomeController extends Controller {
      */
     public function hello(Request $request): Response {
         $name = $request->param('name', 'World');
-        return $this->json(['message' => "Hello, $name!"]);
+        return $this->json([
+            'message' => "Hello, $name!",
+            'config' => Config::all(),
+        ]);
     }
 }

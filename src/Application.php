@@ -20,7 +20,7 @@ class Application {
      * @param Router $router
      */
     public function __construct(Router $router) {
-        $this->router = $router;
+        $this->router = $router;// Initialize config
     }
 
     /**
@@ -61,5 +61,9 @@ class Application {
         $response = $next($request);
 
         return $response instanceof Response ? $response : new Response($response);
+    }
+
+    public function getConfig(): Config {
+        return $this->config;
     }
 }

@@ -1,0 +1,8 @@
+{
+  "app_name": "Burst - A microframework for PHP",
+  "app_env": "local",
+  "version": "0.0.1",
+  "author": "Aaron Mangan",
+  "license": "MIT",
+  "debug": true
+}
