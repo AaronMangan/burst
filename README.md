@@ -1,6 +1,17 @@
 # Burst Micro Framework
 
-A tiny PHP framework that handles routing, middleware, controllers, and JSON responses in ~200 lines of code.
+A tiny PHP framework that handles routing, middleware, controllers, and JSON responses. By using only the features you need, you can create a "minolith".
+
+## Get Installed!
+
+Burst is designed to be in residence of your code base, that is, it is the foundation on which you build your app.
+
+`https://github.com/AaronMangan/burst.git`
+
+OR
+
+`git@github.com:AaronMangan/burst.git`
+
 
 ## Quick Start
 
