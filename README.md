@@ -2,9 +2,21 @@
 
 A tiny PHP framework that handles routing, middleware, controllers, and JSON responses. By using only the features you need, you can create a "minolith".
 
+## But....Why!?
+
+I know, there are excellent PHP frameworks available these days, and I LOVE to use them - Burst was heavily inspired by the Laravel team, it's such a beautiful framework.
+
+But I thought to myself, how small can we go? - the result is Burst.
+
+The ideal is to cut out anything you don't need, add only what you will actually use.
+
+During the course of my developer career, I have work on so many tools that just needed the basics, from tiny API's designed only to access a legacy database with three tables, to tools that served a single page for insurance calculations. Most of these did not need all the overhead a full framework.
+
+Another good use case is for prototyping - if you need something to work as a proof-of-concept, a business case or example, we got you covered.
+
 ## Get Installed!
 
-Burst is designed to be in residence of your code base, that is, it is the foundation on which you build your app.
+Burst is designed to cohabitate in your code base, that is, it is the foundation on which you build your app.
 
 `https://github.com/AaronMangan/burst.git`
 
@@ -30,8 +42,14 @@ Visit http://localhost:8080 or http://localhost:8080/hello/your-name
 - Request/Response abstraction
 - JSON responses
 - Extremely lightweight
+- JSON configuration
 
 ## Usage
+
+### Routing
+
+Inside `public/index.php` - In the routes section, you may add your desired routes. If you've ever written routes in Laravel before then you'll be right at home.
+We've included a couple to get you started.
 
 ### Define Routes
 
@@ -46,6 +64,10 @@ $router->get('/hello', function(Request $req) {
 // Controller method
 $router->get('/hello/{name}', [HomeController::class, 'hello']);
 ```
+
+### Controllers
+
+Use controllers to determine the proper flow of logic in your app. Routes are tied to a specific method in your controller, but for anything substantial consider handing off to a service or repository instead. This will keep you code modular and extensible.
 
 ### Create Controllers
 
